@@ -3,7 +3,7 @@
     "description": "Arcavias extension for integration into TYPO3",
     "type": "arcavias-extension",
     "require": {
-        "arcavias/extension-installer": "*"
+        "arcavias/extension-installer": "dev-master"
     },
     "autoload": {
         "psr-0": {
