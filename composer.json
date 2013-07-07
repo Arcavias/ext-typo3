@@ -1,0 +1,8 @@
+{
+    "name": "arcavias/ext-typo3",
+    "description": "Arcavias extension for integration into TYPO3",
+    "type": "arcavias-extension",
+    "require": {
+        "arcavias/extension-installer": "*"
+    }
+}
