@@ -2,7 +2,6 @@
     "name": "arcavias/ext-typo3",
     "description": "Arcavias extension for integration into TYPO3",
     "type": "arcavias-extension",
-	"repositories": [ { "type": "composer", "url": "http://localhost/~nose/Arcavias/src/packages/files/" } ],
     "require": {
         "arcavias/extension-installer": "dev-master"
     },
