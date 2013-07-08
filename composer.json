@@ -11,7 +11,7 @@
 		"wiki": "https://docs.arcavias.com"
 	},
     "require": {
-        "arcavias/extension-installer": "*"
+        "arcavias/extension-installer": "dev-master"
     },
     "autoload": {
         "psr-0": {
