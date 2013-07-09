@@ -26,29 +26,29 @@ return array(
 			WHERE "uid"=?
 		',
 		'search' => '
-			SELECT DISTINCT tfeu."uid" AS "id", tfeu."name" AS "label", tfeu."username" AS "code", tfeu."gender",
-				tfeu."company", tfeu."title", tfeu."first_name" AS "firstname", tfeu."last_name" AS "lastname",
-				tfeu."address" AS "address1", tfeu."zip" AS "postal", tfeu."city", tfeu."zone" AS "state",
-				tfeu."language" AS "langid", tsc."cn_iso_2" AS "countryid", tfeu."telephone", tfeu."email",
-				tfeu."fax" AS "telefax", tfeu."www" AS "website", tfeu."date_of_birth", tfeu."disable", tfeu."password",
-				tfeu."crdate", tfeu."tstamp"
-			FROM "fe_users" as tfeu
-			LEFT JOIN "static_countries" AS tsc ON tfeu."static_info_country" = tsc."cn_iso_3"
+			SELECT DISTINCT t3feu."uid" AS "id", t3feu."name" AS "label", t3feu."username" AS "code", t3feu."gender",
+				t3feu."company", t3feu."title", t3feu."first_name" AS "firstname", t3feu."last_name" AS "lastname",
+				t3feu."address" AS "address1", t3feu."zip" AS "postal", t3feu."city", t3feu."zone" AS "state",
+				t3feu."language" AS "langid", tsc."cn_iso_2" AS "countryid", t3feu."telephone", t3feu."email",
+				t3feu."fax" AS "telefax", t3feu."www" AS "website", t3feu."date_of_birth", t3feu."disable", t3feu."password",
+				t3feu."crdate", t3feu."tstamp"
+			FROM "fe_users" as t3feu
+			LEFT JOIN "static_countries" AS tsc ON t3feu."static_info_country" = tsc."cn_iso_3"
 			:joins
 			WHERE :cond
-				AND tfeu."deleted" = 0
+				AND t3feu."deleted" = 0
 			/*-orderby*/ ORDER BY :order /*orderby-*/
 			LIMIT :size OFFSET :start
 		',
 		'count' => '
 			SELECT COUNT(*) AS "count"
 			FROM (
-				SELECT DISTINCT tfeu."uid"
-				FROM "fe_users" AS tfeu
-				LEFT JOIN "static_countries" AS tsc ON tfeu."static_info_country" = tsc."cn_iso_3"
+				SELECT DISTINCT t3feu."uid"
+				FROM "fe_users" AS t3feu
+				LEFT JOIN "static_countries" AS tsc ON t3feu."static_info_country" = tsc."cn_iso_3"
 				:joins
 				WHERE :cond
-					AND tfeu."deleted" = 0
+					AND t3feu."deleted" = 0
 				LIMIT 10000 OFFSET 0
 			) AS list
 		',

@@ -12,6 +12,17 @@
 class MW_Setup_Task_CustomerAddTypo3TestData extends MW_Setup_Task_CustomerAddTestData
 {
 	/**
+	 * Returns the list of task names which this task depends on.
+	 *
+	 * @return array List of task names
+	 */
+	public function getPreDependencies()
+	{
+		return array( 'TablesAddTypo3TestData' );
+	}
+
+
+	/**
 	 * Adds customer TYPO3 test data.
 	 */
 	protected function _process()

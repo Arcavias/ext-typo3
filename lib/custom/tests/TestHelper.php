@@ -7,13 +7,13 @@
 
 class TestHelper
 {
-	private static $_mshop;
+	private static $_arcavias;
 	private static $_context = array();
 
 
 	public static function bootstrap()
 	{
-		$mshop = self::_getMShop();
+		$mshop = self::_getArcavias();
 
 		$includepaths = $mshop->getIncludePaths();
 		$includepaths[] = get_include_path();
@@ -31,18 +31,18 @@ class TestHelper
 	}
 
 
-	private static function _getMShop()
+	private static function _getArcavias()
 	{
-		if( !isset( self::$_mshop ) )
+		if( !isset( self::$_arcavias ) )
 		{
 			require_once 'Arcavias.php';
-			spl_autoload_register( 'MShop::autoload' );
+			spl_autoload_register( 'Arcavias::autoload' );
 
 			$extdir = dirname( dirname( dirname( dirname( __FILE__ ) ) ) );
-			self::$_mshop = new MShop( array( $extdir ), false );
+			self::$_arcavias = new Arcavias( array( $extdir ), false );
 		}
 
-		return self::$_mshop;
+		return self::$_arcavias;
 	}
 
 
@@ -50,7 +50,7 @@ class TestHelper
 	{
 		$ds = DIRECTORY_SEPARATOR;
 		$ctx = new MShop_Context_Item_Default();
-		$mshop = self::_getMShop();
+		$mshop = self::_getArcavias();
 
 
 		$paths = $mshop->getConfigPaths( 'mysql' );

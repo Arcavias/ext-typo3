@@ -64,36 +64,36 @@ CREATE TABLE "fe_users_address" (
 	"ctime" DATETIME NOT NULL,
 	-- Editor who modified this entry at last
 	"editor" VARCHAR(255) NOT NULL,
-CONSTRAINT "pk_mscusad_id"
+CONSTRAINT "pk_t3feuad_id"
 	PRIMARY KEY ("id"),
-CONSTRAINT "fk_mscusad_siteid"
+CONSTRAINT "fk_t3feuad_siteid"
 	FOREIGN KEY ("siteid")
 	REFERENCES "mshop_locale_site" ("id")
 	ON UPDATE CASCADE
 	ON DELETE CASCADE,
-CONSTRAINT "fk_mscusad_langid"
+CONSTRAINT "fk_t3feuad_langid"
 	FOREIGN KEY ("langid")
 	REFERENCES "mshop_locale_language" ("id")
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET = utf8;
 
-CREATE INDEX "idx_tfeuad_refid" ON "fe_users_address" ("refid");
+CREATE INDEX "idx_t3feuad_refid" ON "fe_users_address" ("refid");
 
-CREATE INDEX "idx_mscusad_sid_ln_fn" ON "mshop_customer_address" ("siteid", "lastname", "firstname");
+CREATE INDEX "idx_t3feuad_sid_ln_fn" ON "mshop_customer_address" ("siteid", "lastname", "firstname");
 
-CREATE INDEX "idx_mscusad_sid_ad1_ad2" ON "mshop_customer_address" ("siteid", "address1", "address2");
+CREATE INDEX "idx_t3feuad_sid_ad1_ad2" ON "mshop_customer_address" ("siteid", "address1", "address2");
 
-CREATE INDEX "idx_mscusad_sid_post_ci" ON "mshop_customer_address" ("siteid", "postal", "city");
+CREATE INDEX "idx_t3feuad_sid_post_ci" ON "mshop_customer_address" ("siteid", "postal", "city");
 
-CREATE INDEX "idx_mscusad_sid_rid" ON "mshop_customer_address" ("siteid", "refid");
+CREATE INDEX "idx_t3feuad_sid_rid" ON "mshop_customer_address" ("siteid", "refid");
 
-CREATE INDEX "idx_mscusad_sid_lastname" ON "mshop_customer_address" ("siteid", "lastname");
+CREATE INDEX "idx_t3feuad_sid_lastname" ON "mshop_customer_address" ("siteid", "lastname");
 
-CREATE INDEX "idx_mscusad_sid_postal" ON "mshop_customer_address" ("siteid", "postal");
+CREATE INDEX "idx_t3feuad_sid_postal" ON "mshop_customer_address" ("siteid", "postal");
 
-CREATE INDEX "idx_mscusad_sid_city" ON "mshop_customer_address" ("siteid", "city");
+CREATE INDEX "idx_t3feuad_sid_city" ON "mshop_customer_address" ("siteid", "city");
 
-CREATE INDEX "idx_mscusad_sid_addr1" ON "mshop_customer_address" ("siteid", "address1");
+CREATE INDEX "idx_t3feuad_sid_addr1" ON "mshop_customer_address" ("siteid", "address1");
 
-CREATE INDEX "idx_mscusad_sid_rid" ON "mshop_customer_address" ("siteid", "email");
+CREATE INDEX "idx_t3feuad_sid_rid" ON "mshop_customer_address" ("siteid", "email");
