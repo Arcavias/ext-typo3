@@ -1,8 +1,15 @@
 {
     "name": "arcavias/ext-typo3",
     "description": "Arcavias extension for integration into TYPO3",
+	"homepage": "http://www.arcavias.com/en",
     "type": "arcavias-extension",
-	"repositories": [ { "type": "composer", "url": "http://localhost/~nose/Arcavias/src/packages/files/" } ],
+	"license": "LGPL-3.0",
+	"support": {
+		"source": "https://github.com/Arcavias/ext-typo3",
+		"issues": "https://bugs.arcavias.com",
+		"forum": "https://forum.arcavias.com",
+		"wiki": "https://docs.arcavias.com"
+	},
     "require": {
         "arcavias/extension-installer": "dev-master"
     },
