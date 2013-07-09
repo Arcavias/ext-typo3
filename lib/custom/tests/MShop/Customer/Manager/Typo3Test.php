@@ -194,6 +194,32 @@ class MShop_Customer_Manager_Typo3Test extends MW_Unittest_Testcase
 		$expr[] = $search->compare( '>', 'customer.mtime', '1970-01-01 00:00:00' );
 		$expr[] = $search->compare( '>', 'customer.ctime', '1970-01-01 00:00:00' );
 
+		$expr[] = $search->compare( '!=', 'customer.address.id', null );
+		$expr[] = $search->compare( '!=', 'customer.address.siteid', null );
+		$expr[] = $search->compare( '!=', 'customer.address.refid', null );
+		$expr[] = $search->compare( '==', 'customer.address.salutation', 'company' );
+		$expr[] = $search->compare( '==', 'customer.address.company', 'unitcompany' );
+		$expr[] = $search->compare( '==', 'customer.address.title', 'unittitle' );
+		$expr[] = $search->compare( '==', 'customer.address.firstname', 'unitfirstname' );
+		$expr[] = $search->compare( '==', 'customer.address.lastname', 'unitlastname' );
+		$expr[] = $search->compare( '==', 'customer.address.address1', 'unitaddress1' );
+		$expr[] = $search->compare( '==', 'customer.address.address2', 'unitaddress2' );
+		$expr[] = $search->compare( '==', 'customer.address.address3', 'unitaddress3' );
+		$expr[] = $search->compare( '==', 'customer.address.postal', 'unitpostal' );
+		$expr[] = $search->compare( '==', 'customer.address.city', 'unitcity' );
+		$expr[] = $search->compare( '==', 'customer.address.state', 'unitstate' );
+		$expr[] = $search->compare( '==', 'customer.address.countryid', 'DE' );
+		$expr[] = $search->compare( '==', 'customer.address.languageid', 'de' );
+		$expr[] = $search->compare( '==', 'customer.address.telephone', '1234567890' );
+		$expr[] = $search->compare( '==', 'customer.address.email', 'unitCustomer3@metaways.de' );
+		$expr[] = $search->compare( '==', 'customer.address.telefax', '1234567891' );
+		$expr[] = $search->compare( '==', 'customer.address.website', 'unit.web.site' );
+		$expr[] = $search->compare( '==', 'customer.address.flag', 0 );
+		$expr[] = $search->compare( '==', 'customer.address.position', 2 );
+		$expr[] = $search->compare( '==', 'customer.address.editor', 'typo3:unittest' );
+		$expr[] = $search->compare( '>', 'customer.address.mtime', '1970-01-01 00:00:00' );
+		$expr[] = $search->compare( '>', 'customer.address.ctime', '1970-01-01 00:00:00' );
+
 		$search->setConditions( $search->combine( '&&', $expr ) );
 		$result = $this->_object->searchItems( $search, array(), $total );
 

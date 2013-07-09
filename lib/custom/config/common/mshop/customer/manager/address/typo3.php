@@ -27,12 +27,12 @@ return array(
 			WHERE "id"=?
 		',
 		'search' => '
-			SELECT tfeuad."id", tfeuad."siteid", tfeuad."refid", tfeuad."company", tfeuad."salutation", tfeuad."title",
-				tfeuad."firstname", tfeuad."lastname", tfeuad."address1", tfeuad."address2", tfeuad."address3",
-				tfeuad."postal", tfeuad."city", tfeuad."state", tfeuad."countryid", tfeuad."langid", tfeuad."telephone",
-				tfeuad."email", tfeuad."telefax", tfeuad."website", tfeuad."flag", tfeuad."pos",
-				tfeuad."mtime", tfeuad."editor", tfeuad."ctime"
-			FROM "fe_users_address" AS tfeuad
+			SELECT t3feuad."id", t3feuad."siteid", t3feuad."refid", t3feuad."company", t3feuad."salutation", t3feuad."title",
+				t3feuad."firstname", t3feuad."lastname", t3feuad."address1", t3feuad."address2", t3feuad."address3",
+				t3feuad."postal", t3feuad."city", t3feuad."state", t3feuad."countryid", t3feuad."langid", t3feuad."telephone",
+				t3feuad."email", t3feuad."telefax", t3feuad."website", t3feuad."flag", t3feuad."pos",
+				t3feuad."mtime", t3feuad."editor", t3feuad."ctime"
+			FROM "fe_users_address" AS t3feuad
 			:joins
 			WHERE :cond
 			/*-orderby*/ ORDER BY :order /*orderby-*/
@@ -41,8 +41,8 @@ return array(
 		'count' => '
 			SELECT COUNT(*) AS "count"
 			FROM (
-				SELECT DISTINCT tfeuad."id"
-				FROM "fe_users_address" AS tfeuad
+				SELECT DISTINCT t3feuad."id"
+				FROM "fe_users_address" AS t3feuad
 				:joins
 				WHERE :cond
 				LIMIT 10000 OFFSET 0
