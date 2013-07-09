@@ -35,7 +35,7 @@ class TestHelper
 	{
 		if( !isset( self::$_mshop ) )
 		{
-			require_once 'MShop.php';
+			require_once 'Arcavias.php';
 			spl_autoload_register( 'MShop::autoload' );
 
 			$extdir = dirname( dirname( dirname( dirname( __FILE__ ) ) ) );
@@ -77,7 +77,7 @@ class TestHelper
 
 		$ctx->setLocale( $localeItem );
 
-		$ctx->setEditor( 'test:typo3' );
+		$ctx->setEditor( 'typo3:unittest' );
 
 		return $ctx;
 	}

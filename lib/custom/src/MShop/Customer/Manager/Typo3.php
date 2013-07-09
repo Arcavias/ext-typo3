@@ -14,7 +14,8 @@
  * @package MShop
  * @subpackage Customer
  */
-class MShop_Customer_Manager_Typo3 extends MShop_Customer_Manager_Default
+class MShop_Customer_Manager_Typo3
+	extends MShop_Customer_Manager_Default
 {
 	private $_searchConfig = array(
 		'customer.id' => array(
@@ -353,7 +354,7 @@ class MShop_Customer_Manager_Typo3 extends MShop_Customer_Manager_Default
 			$sql = $config->get( $path, $path );
 
 			$stmt = $conn->create( $sql );
-			$billingAddress = $item->getBillingAddress();
+			$billingAddress = $item->getPaymentAddress();
 
 			$addressParts = ( ( $part = $billingAddress->getAddress2() ) != '' ? ' ' . $part : '' );
 			$addressParts .= ( ( $part = $billingAddress->getAddress3() ) != '' ? ' ' . $part : '' );
@@ -457,7 +458,7 @@ class MShop_Customer_Manager_Typo3 extends MShop_Customer_Manager_Default
 	 */
 	public function getSubManager( $manager, $name = null )
 	{
-		return parent::getSubManager( $manager, $name );
+		return $this->_getSubManager( 'customer', $manager, $name );
 	}
 
 

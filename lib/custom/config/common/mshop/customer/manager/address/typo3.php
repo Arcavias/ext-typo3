@@ -1,45 +1,52 @@
 <?php
 
 /**
- * @copyright Copyright (c) Metaways Infosystems GmbH, 2011
- * @version $Id: typo3.php 15438 2012-03-22 13:23:59Z spopp $
+ * @copyright Copyright (c) Metaways Infosystems GmbH, 2013
+ * @license LGPLv3, http://www.arcavias.com/en/license
  */
 
 return array(
 	'item' => array(
 		'delete' => '
-			DELETE FROM "tt_address"
-			WHERE "uid"=?
+			DELETE FROM "fe_users_address"
+			WHERE :cond
+			AND siteid = ?
 		',
 		'insert' => '
-			INSERT INTO "tt_address" ("tx_mshop_siteid", "tx_mshop_fe_user_uid", "company", "gender", "title",
-				"first_name","last_name","address","tx_mshop_address2","tx_mshop_address3","zip","city","region",
-				"country","tx_mshop_langid","phone","email","fax","www","tx_mshop_pos")
-			VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+			INSERT INTO "fe_users_address" ("siteid", "refid", "company","salutation","title",
+				"firstname","lastname","address1","address2","address3","postal","city","state",
+				"countryid","langid","telephone","email","telefax","website","flag","pos", "mtime", "editor", "ctime" )
+			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 		',
 		'update' => '
-			UPDATE "tt_address"
-			SET "tx_mshop_siteid"=?, "tx_mshop_fe_user_uid"=?, "company"=?, "gender"=?, "title"=?, "first_name"=?, "last_name"=?,
-				"address"=?, "tx_mshop_address2"=?, "tx_mshop_address3"=?, "zip"=?, "city"=?, "region"=?, "country"=?,
-				"tx_mshop_langid"=?, "phone"=?, "email"=?, "fax"=?, "www"=?, "tx_mshop_pos"=?
-			WHERE "uid"=?
+			UPDATE "fe_users_address"
+			SET "siteid"=?, "refid"=?, "company"=?, "salutation"=?, "title"=?, "firstname"=?, "lastname"=?,
+				"address1"=?, "address2"=?, "address3"=?, "postal"=?, "city"=?, "state"=?, "countryid"=?,
+				"langid"=?, "telephone"=?, "email"=?, "telefax"=?, "website"=?, "flag"=?, "pos"=?,
+				"mtime"=?, "editor"=?
+			WHERE "id"=?
 		',
 		'search' => '
-			SELECT tt_address."uid" AS "id", tt_address."tx_mshop_siteid" AS "siteid", tt_address."tx_mshop_fe_user_uid" AS "refid", tt_address."company", tt_address."gender" AS "salutation", tt_address."title",
-				   tt_address."first_name" AS "firstname", tt_address."last_name" AS "lastname", tt_address."address" AS "address1", tt_address."tx_mshop_address2" AS "address2", tt_address."tx_mshop_address3" AS "address3",
-				   tt_address."zip" AS "postal", tt_address."city", tt_address."region" AS "state", tt_address."country" AS "countryid", tt_address."tx_mshop_langid" AS "langid", tt_address."phone" AS "telephone",
-				   tt_address."email", tt_address."fax" AS "telefax", tt_address."www" AS "website", tt_address."tx_mshop_pos" AS "pos"
-			FROM "tt_address"
+			SELECT tfeuad."id", tfeuad."siteid", tfeuad."refid", tfeuad."company", tfeuad."salutation", tfeuad."title",
+				tfeuad."firstname", tfeuad."lastname", tfeuad."address1", tfeuad."address2", tfeuad."address3",
+				tfeuad."postal", tfeuad."city", tfeuad."state", tfeuad."countryid", tfeuad."langid", tfeuad."telephone",
+				tfeuad."email", tfeuad."telefax", tfeuad."website", tfeuad."flag", tfeuad."pos",
+				tfeuad."mtime", tfeuad."editor", tfeuad."ctime"
+			FROM "fe_users_address" AS tfeuad
+			:joins
 			WHERE :cond
-				AND ( tt_address."tx_mshop_siteid"=? OR tt_address."tx_mshop_siteid" IS NULL )
-			ORDER BY :order
+			/*-orderby*/ ORDER BY :order /*orderby-*/
 			LIMIT :size OFFSET :start
 		',
 		'count' => '
-			SELECT COUNT(DISTINCT tt_address."uid") AS "count"
-			FROM "tt_address"
-			WHERE :cond
-				AND ( tt_address."tx_mshop_siteid"=? OR tt_address."tx_mshop_siteid" IS NULL )
+			SELECT COUNT(*) AS "count"
+			FROM (
+				SELECT DISTINCT tfeuad."id"
+				FROM "fe_users_address" AS tfeuad
+				:joins
+				WHERE :cond
+				LIMIT 10000 OFFSET 0
+			) AS list
 		',
 	),
 );
