@@ -21,105 +21,105 @@ class MShop_Customer_Manager_Typo3
 		'customer.id' => array(
 			'label' => 'Customer ID',
 			'code' => 'customer.id',
-			'internalcode' => 'tfeu."uid"',
+			'internalcode' => 't3feu."uid"',
 			'type' => 'integer',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_INT
 		),
 		'customer.label' => array(
 			'label' => 'Customer name',
 			'code' => 'customer.label',
-			'internalcode' => 'tfeu."name"',
+			'internalcode' => 't3feu."name"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR
 		),
 		'customer.code' => array(
 			'label' => 'Customer username',
 			'code' => 'customer.code',
-			'internalcode' => 'tfeu."username"',
+			'internalcode' => 't3feu."username"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR
 		),
 		'customer.salutation' => array(
 			'label' => 'Customer salutation',
 			'code' => 'customer.salutation',
-			'internalcode' => 'tfeu."gender"',
+			'internalcode' => 't3feu."gender"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.company'=> array(
 			'label' => 'Customer company',
 			'code' => 'customer.company',
-			'internalcode' => 'tfeu."company"',
+			'internalcode' => 't3feu."company"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.title' => array(
 			'label' => 'Customer title',
 			'code' => 'customer.title',
-			'internalcode' => 'tfeu."title"',
+			'internalcode' => 't3feu."title"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.firstname' => array(
 			'label' => 'Customer firstname',
 			'code' => 'customer.firstname',
-			'internalcode' => 'tfeu."first_name"',
+			'internalcode' => 't3feu."first_name"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.lastname' => array(
 			'label' => 'Customer lastname',
 			'code' => 'customer.lastname',
-			'internalcode' => 'tfeu."last_name"',
+			'internalcode' => 't3feu."last_name"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.address1' => array(
 			'label' => 'Customer address part one',
 			'code' => 'customer.address1',
-			'internalcode' => 'tfeu."address"',
+			'internalcode' => 't3feu."address"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.address2' => array(
 			'label' => 'Customer address part two',
 			'code' => 'customer.address2',
-			'internalcode' => 'tfeu."address"',
+			'internalcode' => 't3feu."address"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.address3' => array(
 			'label' => 'Customer address part three',
 			'code' => 'customer.address3',
-			'internalcode' => 'tfeu."address"',
+			'internalcode' => 't3feu."address"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.postal' => array(
 			'label' => 'Customer postal',
 			'code' => 'customer.postal',
-			'internalcode' => 'tfeu."zip"',
+			'internalcode' => 't3feu."zip"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.city' => array(
 			'label' => 'Customer city',
 			'code' => 'customer.city',
-			'internalcode' => 'tfeu."city"',
+			'internalcode' => 't3feu."city"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.state' => array(
 			'label' => 'Customer state',
 			'code' => 'customer.state',
-			'internalcode' => 'tfeu."zone"',
+			'internalcode' => 't3feu."zone"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.languageid' => array(
 			'label' => 'Customer language',
 			'code' => 'customer.languageid',
-			'internalcode' => 'tfeu."language"',
+			'internalcode' => 't3feu."language"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
@@ -133,63 +133,63 @@ class MShop_Customer_Manager_Typo3
 		'customer.telephone' => array(
 			'label' => 'Customer telephone',
 			'code' => 'customer.telephone',
-			'internalcode' => 'tfeu."telephone"',
+			'internalcode' => 't3feu."telephone"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.email' => array(
 			'label' => 'Customer email',
 			'code' => 'customer.email',
-			'internalcode' => 'tfeu."email"',
+			'internalcode' => 't3feu."email"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.telefax' => array(
 			'label' => 'Customer telefax',
 			'code' => 'customer.telefax',
-			'internalcode' => 'tfeu."fax"',
+			'internalcode' => 't3feu."fax"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.website' => array(
 			'label' => 'Customer website',
 			'code' => 'customer.website',
-			'internalcode' => 'tfeu."www"',
+			'internalcode' => 't3feu."www"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.birthday' => array(
 			'label' => 'Customer birthday',
 			'code' => 'customer.birthday',
-			'internalcode' => 'tfeu."date_of_birth"',
+			'internalcode' => 't3feu."date_of_birth"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.password'=> array(
 			'label' => 'Customer password',
 			'code' => 'customer.password',
-			'internalcode' => 'tfeu."password"',
+			'internalcode' => 't3feu."password"',
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.status'=> array(
 			'label' => 'Customer status',
 			'code' => 'customer.status',
-			'internalcode' => 'tfeu."disable"',
+			'internalcode' => 't3feu."disable"',
 			'type' => 'integer',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_INT
 		),
 		'customer.ctime'=> array(
 			'label' => 'Customer creation time',
 			'code' => 'customer.ctime',
-			'internalcode' => 'tfeu."crdate"',
+			'internalcode' => 't3feu."crdate"',
 			'type' => 'datetime',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.mtime'=> array(
 			'label' => 'Customer modification time',
 			'code' => 'customer.mtime',
-			'internalcode' => 'tfeu."tstamp"',
+			'internalcode' => 't3feu."tstamp"',
 			'type' => 'datetime',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
@@ -278,7 +278,7 @@ class MShop_Customer_Manager_Typo3
 		{
 			$config = $this->_getContext()->getConfig();
 
-			foreach( $config->get( 'classes/customer/manager/submanagers', array() ) as $domain ) {
+			foreach( $config->get( 'classes/customer/manager/submanagers', array( 'address' ) ) as $domain ) {
 				$list = array_merge( $list, $this->getSubManager( $domain )->getSearchAttributes() );
 			}
 		}
@@ -458,6 +458,10 @@ class MShop_Customer_Manager_Typo3
 	 */
 	public function getSubManager( $manager, $name = null )
 	{
+		if( $name === null ) {
+			$name = 'Typo3';
+		}
+
 		return $this->_getSubManager( 'customer', $manager, $name );
 	}
 
