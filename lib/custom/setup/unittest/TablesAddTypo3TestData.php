@@ -6,7 +6,7 @@
  */
 
 
-/*
+/**
  * Adds default records to tables.
  */
 class MW_Setup_Task_TablesAddTypo3TestData extends MW_Setup_Task_Abstract

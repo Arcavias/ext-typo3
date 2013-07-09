@@ -278,7 +278,7 @@ class MShop_Customer_Manager_Typo3
 		{
 			$config = $this->_getContext()->getConfig();
 
-			foreach( $config->get( 'classes/customer/manager/submanagers', array( 'address' ) ) as $domain ) {
+			foreach( $config->get( 'classes/customer/manager/submanagers', array( 'address', 'list' ) ) as $domain ) {
 				$list = array_merge( $list, $this->getSubManager( $domain )->getSearchAttributes() );
 			}
 		}

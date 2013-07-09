@@ -220,6 +220,29 @@ class MShop_Customer_Manager_Typo3Test extends MW_Unittest_Testcase
 		$expr[] = $search->compare( '>', 'customer.address.mtime', '1970-01-01 00:00:00' );
 		$expr[] = $search->compare( '>', 'customer.address.ctime', '1970-01-01 00:00:00' );
 
+		$expr[] = $search->compare( '!=', 'customer.list.id', null );
+		$expr[] = $search->compare( '!=', 'customer.list.siteid', null );
+		$expr[] = $search->compare( '!=', 'customer.list.parentid', null );
+		$expr[] = $search->compare( '==', 'customer.list.domain', 'text' );
+		$expr[] = $search->compare( '>', 'customer.list.typeid', 0 );
+		$expr[] = $search->compare( '>', 'customer.list.refid', 0 );
+		$expr[] = $search->compare( '==', 'customer.list.datestart', '2010-01-01 00:00:00' );
+		$expr[] = $search->compare( '==', 'customer.list.dateend', '2022-01-01 00:00:00' );
+		$expr[] = $search->compare( '>', 'customer.list.position', 0 );
+		$expr[] = $search->compare( '>=', 'customer.list.mtime', '1970-01-01 00:00:00' );
+		$expr[] = $search->compare( '>=', 'customer.list.ctime', '1970-01-01 00:00:00' );
+		$expr[] = $search->compare( '==', 'customer.list.editor', 'typo3:unittest' );
+
+		$expr[] = $search->compare( '!=', 'customer.list.type.id', null );
+		$expr[] = $search->compare( '!=', 'customer.list.type.siteid', null );
+		$expr[] = $search->compare( '==', 'customer.list.type.code', 'default' );
+		$expr[] = $search->compare( '==', 'customer.list.type.domain', 'text' );
+		$expr[] = $search->compare( '==', 'customer.list.type.label', 'Default' );
+		$expr[] = $search->compare( '==', 'customer.list.type.status', 1 );
+		$expr[] = $search->compare( '>=', 'customer.list.type.mtime', '1970-01-01 00:00:00' );
+		$expr[] = $search->compare( '>=', 'customer.list.type.ctime', '1970-01-01 00:00:00' );
+		$expr[] = $search->compare( '==', 'customer.list.type.editor', 'typo3:unittest' );
+
 		$search->setConditions( $search->combine( '&&', $expr ) );
 		$result = $this->_object->searchItems( $search, array(), $total );
 
