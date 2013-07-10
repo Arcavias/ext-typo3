@@ -5,7 +5,7 @@ php:
 before_script:
   - git clone --depth=50 --branch=master git://github.com/Arcavias/arcavias-core.git ../arcavias-core
   - cd ../arcavias-core
-  - ln ../ext-typo3 ext/typo3
+  - mv ../ext-typo3 ext/typo3
   - wget http://getcomposer.org/composer.phar
   - php composer.phar install
   - pear channel-discover pear.phing.info
