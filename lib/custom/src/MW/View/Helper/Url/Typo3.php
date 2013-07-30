@@ -26,9 +26,9 @@ class MW_View_Helper_Url_Typo3
 	 * Initializes the URL view helper.
 	 *
 	 * @param MW_View_Interface $view View instance with registered view helpers
-	 * @param string $baseUrl URL which acts as base for all constructed URLs
+	 * @param Tx_Extbase_MVC_Web_Routing_UriBuilder $uriBuilder TYPO3 URI builder
 	 */
-	public function __construct( $view, Tx_Extbase_MVC_Web_Routing_UriBuilder $uriBuilder )
+	public function __construct( MW_View_Interface $view, Tx_Extbase_MVC_Web_Routing_UriBuilder $uriBuilder )
 	{
 		parent::__construct( $view );
 
