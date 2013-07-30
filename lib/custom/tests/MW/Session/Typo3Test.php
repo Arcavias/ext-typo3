@@ -1,17 +1,13 @@
 <?php
 
 /**
- * Test class for MW_Session_CMSLite.
+ * Test class for MW_Session_Typo3.
  *
  * @copyright Copyright (c) Metaways Infosystems GmbH, 2011
  * @license LGPLv3, http://www.gnu.org/licenses/lgpl.html
  */
 class MW_Session_Typo3Test extends MW_Unittest_Testcase
 {
-	/**
-	 * @var    MW_Session_Typo3
-	 * @access protected
-	 */
 	protected $_object;
 
 	/**
@@ -37,9 +33,6 @@ class MW_Session_Typo3Test extends MW_Unittest_Testcase
 		unset($this->_object);
 	}
 
-	/**
-	 * @todo Implement testGet().
-	 */
 	public function testGet()
 	{
 		$this->assertEquals('', $this->_object->get('test'));
@@ -48,9 +41,6 @@ class MW_Session_Typo3Test extends MW_Unittest_Testcase
 		$this->assertEquals('123456789', $this->_object->get('test'));
 	}
 
-	/**
-	 * @todo Implement testSet().
-	 */
 	public function testSet()
 	{
 		$this->_object->set('test', '123');
