@@ -301,26 +301,12 @@ class MShop_Customer_Manager_Typo3
 	/**
 	 * Deletes a customer item object from the permanent storage.
 	 *
-	 * @param integer $id Unique customer ID referencing an existing customer
+	 * @param array $ids List of customer IDs
 	 */
-	public function deleteItem($id)
+	public function deleteItems( array $ids )
 	{
-		$dbm = $this->_getContext()->getDatabaseManager();
-		$conn = $dbm->acquire();
-
-		try
-		{
-			$stmt = $this->_getCachedStatement($conn, 'mshop/customer/manager/typo3/item/delete');
-			$stmt->bind( 1, $id, MW_DB_Statement_Abstract::PARAM_INT );
-			$result = $stmt->execute()->finish();
-
-			$dbm->release( $conn );
-		}
-		catch( Exception $e )
-		{
-			$dbm->release( $conn );
-			throw $e;
-		}
+		$path = 'mshop/customer/manager/typo3/item/delete';
+		$this->_deleteItems( $ids, $this->_getContext()->getConfig()->get( $path, $path ), false, 'uid' );
 	}
 
 
