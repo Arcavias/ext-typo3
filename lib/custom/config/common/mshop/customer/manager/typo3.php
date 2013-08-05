@@ -9,7 +9,7 @@ return array(
 	'item' => array(
 		'delete' => '
 			DELETE FROM "fe_users"
-			WHERE "uid" = ?
+			WHERE :cond
 		',
 		'insert' => '
 			INSERT INTO "fe_users" ("name", "username", "gender", "company", "title", "first_name", "last_name",

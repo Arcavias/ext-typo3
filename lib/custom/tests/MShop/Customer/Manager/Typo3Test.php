@@ -34,7 +34,7 @@ class MShop_Customer_Manager_Typo3Test extends MW_Unittest_Testcase
 	{
 		$this->_context = TestHelper::getContext();
 		$this->_context->getConfig()->set( 'mshop/customer/manager/typo3/pid-default', 999999 );
-		$this->_object = MShop_Customer_Manager_Factory::createManager( $this->_context, 'Typo3' );
+		$this->_object = new MShop_Customer_Manager_Typo3( $this->_context );
 	}
 
 
