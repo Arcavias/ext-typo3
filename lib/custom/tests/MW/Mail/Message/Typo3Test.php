@@ -23,7 +23,7 @@ class MW_Mail_Message_Typo3Test extends MW_Unittest_Testcase
 	 */
 	protected function setUp()
 	{
-		$this->_mock = $this->getMock( 't3lib_mail_Message' );
+		$this->_mock = $this->getMock( 'T3lib_Mail_Message' );
 		$this->_object = new MW_Mail_Message_Typo3( $this->_mock, 'UTF-8' );
 	}
 
