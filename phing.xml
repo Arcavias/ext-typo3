@@ -6,6 +6,9 @@
 		<phing target="test" haltonfailure="true" dir="lib/custom" />
 	</target>
 
+	<target name="testperf" description="Executes all performance tests">
+	</target>
+
 	<target name="coverage" description="Generates the code coverage report">
 		<phing target="coverage" haltonfailure="true" dir="lib/custom" />
 	</target>
