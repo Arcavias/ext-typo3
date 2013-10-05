@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="MShop TYPO3 extension" default="test">
+<project name="Arcavias typo3 extension" default="test">
 
 	<target name="test" description="Executes all tests">
 		<phing target="test" haltonfailure="true" dir="lib/custom" />
