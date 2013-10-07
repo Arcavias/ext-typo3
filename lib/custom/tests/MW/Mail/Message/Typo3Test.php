@@ -134,6 +134,12 @@ class MW_Mail_Message_Typo3Test extends MW_Unittest_Testcase
 	}
 
 
+	public function testEmbedAttachment()
+	{
+		$this->markTestIncomplete( 'Swift_EmbeddedFile::newInstance() is not testable' );
+	}
+
+
 	public function testGetObject()
 	{
 		$this->assertInstanceOf( 't3lib_mail_Message', $this->_object->getObject() );
