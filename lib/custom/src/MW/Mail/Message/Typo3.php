@@ -159,7 +159,7 @@ class MW_Mail_Message_Typo3 implements MW_Mail_Message_Interface
 	/**
 	 * Adds an attachment to the message.
 	 *
-	 * @param string $data Binary or string @author nose
+	 * @param string $data Binary or string
 	 * @param string $mimetype Mime type of the attachment (e.g. "text/plain", "application/octet-stream", etc.)
 	 * @param string|null $filename Name of the attached file (or null if inline disposition is used)
 	 * @param string $disposition Type of the disposition ("attachment" or "inline")
@@ -172,6 +172,22 @@ class MW_Mail_Message_Typo3 implements MW_Mail_Message_Interface
 
 		$this->_object->attach( $part );
 		return $this;
+	}
+
+
+	/**
+	 * Embeds an attachment into the message and returns its reference.
+	 *
+	 * @param string $data Binary or string
+	 * @param string $mimetype Mime type of the attachment (e.g. "text/plain", "application/octet-stream", etc.)
+	 * @param string|null $filename Name of the attached file
+	 * @return string Content ID for referencing the attachment in the HTML body
+	 */
+	public function embedAttachment( $data, $mimetype, $filename )
+	{
+		$part = Swift_EmbeddedFile::newInstance( $data, $mimetype, $filename );
+
+		return $this->_object->embed( $part );
 	}
 
 
