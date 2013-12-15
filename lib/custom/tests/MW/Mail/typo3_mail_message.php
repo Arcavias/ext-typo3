@@ -45,6 +45,10 @@ class T3lib_Mail_Message
 	{
 	}
 
+	public function getHeaders()
+	{
+	}
+
 	public function send()
 	{
 	}
