@@ -80,6 +80,13 @@ class MShop_Customer_Manager_List_Typo3
 			'type'=> 'datetime',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
+		'customer.list.config' => array(
+			'code'=>'customer.list.config',
+			'internalcode'=>'t3feuli."config"',
+			'label'=>'Customer list position',
+			'type'=> 'string',
+			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
+		),
 		'customer.list.position' => array(
 			'code'=>'customer.list.position',
 			'internalcode'=>'t3feuli."pos"',
