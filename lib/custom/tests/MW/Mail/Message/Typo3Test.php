@@ -7,6 +7,7 @@
 
 
 require_once( dirname( dirname( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'typo3_mail_message.php' );
+require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'Test_HeaderSet.php' );
 
 
 class MW_Mail_Message_Typo3Test extends MW_Unittest_Testcase
@@ -84,6 +85,21 @@ class MW_Mail_Message_Typo3Test extends MW_Unittest_Testcase
 			->with( $this->stringContains( 'a@b' ), $this->stringContains( 'test' ) );
 
 		$result = $this->_object->addReplyTo( 'a@b', 'test' );
+		$this->assertSame( $this->_object, $result );
+	}
+
+
+	public function testAddHeader()
+	{
+		$headersMock = $this->getMock( 'Test_HeaderSet' );
+
+		$this->_mock->expects( $this->once() )->method( 'getHeaders' )
+			->will( $this->returnValue( $headersMock ) );
+
+		$headersMock->expects( $this->once() )->method( 'addTextHeader' )
+			->with( $this->stringContains( 'test' ), $this->stringContains( 'value' ) );
+
+		$result = $this->_object->addHeader( 'test', 'value' );
 		$this->assertSame( $this->_object, $result );
 	}
 
