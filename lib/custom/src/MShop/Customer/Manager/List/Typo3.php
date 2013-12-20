@@ -94,6 +94,13 @@ class MShop_Customer_Manager_List_Typo3
 			'type'=> 'integer',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_INT,
 		),
+		'customer.list.status' => array(
+			'code'=>'customer.list.status',
+			'internalcode'=>'t3feuli."status"',
+			'label'=>'Customer list status',
+			'type'=> 'integer',
+			'internaltype' => MW_DB_Statement_Abstract::PARAM_INT,
+		),
 		'customer.list.ctime'=> array(
 			'code'=>'customer.list.ctime',
 			'internalcode'=>'t3feuli."ctime"',
