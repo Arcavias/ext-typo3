@@ -165,6 +165,8 @@ CREATE TABLE "fe_users_list" (
 	"config" TEXT NOT NULL,
 	-- Precedence rating
 	"pos" INTEGER NOT NULL,
+	-- Status (0=disabled, 1=enabled, >1 for special)
+	"status" SMALLINT NOT NULL,
 	-- Date of last modification of this database entry
 	"mtime" DATETIME NOT NULL,
 	-- Date of creation of this database entry
@@ -189,7 +191,7 @@ CONSTRAINT "fk_t3feuli_typeid"
 
 CREATE INDEX "idx_t3feuli_parentid" ON "fe_users_list" ("parentid");
 
-CREATE INDEX "idx_t3feuli_sid_start_end" ON "fe_users_list" ("siteid", "start", "end");
+CREATE INDEX "idx_t3feuli_sid_stat_start_end" ON "fe_users_list" ("siteid", "status", "start", "end");
 
 CREATE INDEX "idx_t3feuli_sid_rid_dom_tid" ON "fe_users_list" ("siteid", "refid", "domain", "typeid");
 

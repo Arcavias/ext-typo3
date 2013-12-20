@@ -17,13 +17,13 @@ return array(
 		',
 		'insert' => '
 			INSERT INTO "fe_users_list"( "parentid", "siteid", "typeid", "domain", "refid", "start", "end",
-			"config", "pos", "mtime", "editor", "ctime" )
-			VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+			"config", "pos", "status", "mtime", "editor", "ctime" )
+			VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
 		',
 		'update' => '
 			UPDATE "fe_users_list"
 			SET "parentid"=?, "siteid" = ?, "typeid" = ?, "domain" = ?, "refid" = ?, "start" = ?, "end" = ?,
-				"config" = ?, "pos" = ?, "mtime" = ?, "editor" = ?
+				"config" = ?, "pos" = ?, "status" = ?, "mtime" = ?, "editor" = ?
 			WHERE "id" = ?
 		',
 		'updatepos' => '
@@ -48,7 +48,7 @@ return array(
 		'search' => '
 			SELECT t3feuli."id", t3feuli."parentid", t3feuli."siteid", t3feuli."typeid",
 				t3feuli."domain", t3feuli."refid", t3feuli."start", t3feuli."end", t3feuli."config", t3feuli."pos",
-				t3feuli."mtime", t3feuli."editor", t3feuli."ctime"
+				t3feuli."status", t3feuli."mtime", t3feuli."editor", t3feuli."ctime"
 			FROM "fe_users_list" AS t3feuli
 			:joins
 			WHERE :cond
