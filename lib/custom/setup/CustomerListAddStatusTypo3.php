@@ -14,7 +14,7 @@ class MW_Setup_Task_CustomerListAddStatusTypo3 extends MW_Setup_Task_Abstract
 	private $_mysql = array(
 		'fe_users_list' => array (
 			'ALTER TABLE "fe_users_list" ADD "status" SMALLINT NOT NULL DEFAULT 0 AFTER "pos"',
-			'ALTER TABLE "mshop_attribute_list" DROP INDEX "idx_t3feuli_sid_start_end"',
+			'ALTER TABLE "fe_users_list" DROP INDEX "idx_t3feuli_sid_start_end"',
 		)
 	);
 
