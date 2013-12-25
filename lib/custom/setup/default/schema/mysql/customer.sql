@@ -175,8 +175,8 @@ CREATE TABLE "fe_users_list" (
 	"editor" VARCHAR(255) NOT NULL,
 CONSTRAINT "pk_t3feuli_id"
 	PRIMARY KEY ("id"),
-CONSTRAINT "unq_t3feuli_sid_pid_dm_rid_tid"
-	UNIQUE ("siteid", "parentid", "domain", "refid", "typeid"),
+CONSTRAINT "unq_t3feuli_sid_dm_rid_tid_pid"
+	UNIQUE ("siteid", "domain", "refid", "typeid", "parentid"),
 CONSTRAINT "fk_t3feuli_siteid"
 	FOREIGN KEY ("siteid")
 	REFERENCES "mshop_locale_site" ("id")
@@ -193,9 +193,7 @@ CREATE INDEX "idx_t3feuli_parentid" ON "fe_users_list" ("parentid");
 
 CREATE INDEX "idx_t3feuli_sid_stat_start_end" ON "fe_users_list" ("siteid", "status", "start", "end");
 
-CREATE INDEX "idx_t3feuli_sid_rid_dom_tid" ON "fe_users_list" ("siteid", "refid", "domain", "typeid");
-
-CREATE INDEX "idx_t3feuli_pid_sid_rid" ON "fe_users_list" ("parentid", "siteid", "refid");
+CREATE INDEX "idx_t3feuli_pid_sid_rid_dom_tid" ON "fe_users_list" ("parentid", "siteid", "refid", "domain", "typeid");
 
 CREATE INDEX "idx_t3feuli_pid_sid_start" ON "fe_users_list" ("parentid", "siteid", "start");
 
