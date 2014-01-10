@@ -15,7 +15,7 @@
  * @subpackage Customer
  */
 class MShop_Customer_Manager_List_Typo3
-	extends MShop_Common_Manager_List_Default
+	extends MShop_Customer_Manager_List_Default
 	implements MShop_Customer_Manager_List_Interface, MShop_Common_Manager_List_Interface
 {
 	private $_searchConfig = array(
@@ -126,19 +126,6 @@ class MShop_Customer_Manager_List_Typo3
 
 
 	/**
-	 * Initializes a new customer address manager object using the given context object.
-	 *
-	 * @param MShop_Context_Interface $context Context object with required objects
-	 */
-	public function __construct( MShop_Context_Item_Interface $context )
-	{
-		$config = $context->getConfig()->get( 'mshop/customer/manager/list/typo3/item' );
-
-		parent::__construct( $context, $config, $this->_searchConfig );
-	}
-
-
-	/**
 	 * Returns a new manager for customer extensions
 	 *
 	 * @param string $manager Name of the sub manager type in lower case
@@ -147,10 +134,28 @@ class MShop_Customer_Manager_List_Typo3
 	 */
 	public function getSubManager( $manager, $name = null )
 	{
-		if( $name === null ) {
-			$name = 'Typo3';
-		}
+		return $this->_getSubManager( 'customer', 'list/' . $manager, ( $name === null ? 'Typo3' : $name ) );
+	}
 
-		return $this->_getSubManager( 'customer', 'list/' . $manager, $name );
+
+	/**
+	 * Returns the config path for retrieving the configuration values.
+	 *
+	 * @return string Configuration path (mshop/customer/manager/list/type/typo3/item/)
+	 */
+	protected function _getConfigPath()
+	{
+		return 'mshop/customer/manager/list/typo3/item/';
+	}
+
+
+	/**
+	 * Returns the search configuration for searching items.
+	 *
+	 * @return array Associative list of search keys and search definitions
+	 */
+	protected function _getSearchConfig()
+	{
+		return $this->_searchConfig;
 	}
 }
