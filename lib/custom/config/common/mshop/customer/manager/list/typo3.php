@@ -8,11 +8,16 @@
 return array(
 	'item' => array(
 		'aggregate' => '
-			SELECT :key AS "key", COUNT(DISTINCT t3feuli."id") AS "count"
-			FROM "fe_users_list" t3feuli
-			:joins
-			WHERE :cond
-			GROUP BY :key
+			SELECT "key", COUNT(DISTINCT "id") AS "count"
+			FROM (
+				SELECT :key AS "key", t3feuli."id" AS "id"
+				FROM "fe_users_list" AS t3feuli
+				:joins
+				WHERE :cond
+				/*-orderby*/ ORDER BY :order /*orderby-*/
+				LIMIT :size OFFSET :start
+			) AS list
+			GROUP BY "key"
 		',
 		'getposmax' => '
 			SELECT MAX( "pos" ) AS pos
