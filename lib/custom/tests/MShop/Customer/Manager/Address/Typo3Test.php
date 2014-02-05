@@ -40,6 +40,7 @@ class MShop_Customer_Manager_Address_Typo3Test extends MW_Unittest_Testcase
 	protected function tearDown()
 	{
 		unset( $this->_object );
+		MShop_Factory::clear();
 	}
 
 
