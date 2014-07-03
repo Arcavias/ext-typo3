@@ -81,15 +81,17 @@ class MW_Cache_Typo3
 
 
 	/**
-	 * Removes all entries from the cache so it's completely empty.
+	 * Removes all entries for the current site from the cache.
 	 *
 	 * @inheritDoc
-	 *
-	 * @throws MW_Cache_Exception If the cache server doesn't respond
 	 */
 	public function flush()
 	{
-		$this->_object->flush();
+		if( $this->_prefix ) {
+			$this->_object->flushByTag( $this->_prefix . 'siteid' );
+		} else {
+			$this->_object->flush();
+		}
 	}
 
 
@@ -104,7 +106,7 @@ class MW_Cache_Typo3
 	 */
 	public function get( $name, $default = null )
 	{
-		if( ( $entry = $this->_object->get( $this->_prefix . $name ) ) !== null ) {
+		if( ( $entry = $this->_object->get( $this->_prefix . $name ) ) !== false ) {
 			return $entry;
 		}
 
@@ -128,7 +130,7 @@ class MW_Cache_Typo3
 
 		foreach( $keys as $key )
 		{
-			if( ( $entry = $this->_object->get( $this->_prefix . $key ) ) !== null ) {
+			if( ( $entry = $this->_object->get( $this->_prefix . $key ) ) !== false ) {
 				$result[$key] = $entry;
 			}
 		}
@@ -189,7 +191,8 @@ class MW_Cache_Typo3
 			$expires = null;
 		}
 
-		$tagList = array();
+		$tagList = ( $this->_prefix ? array( $this->_prefix . 'siteid' ) : array() );
+
 		foreach( $tags as $tag ) {
 			$tagList[] = $this->_prefix . $tag;
 		}

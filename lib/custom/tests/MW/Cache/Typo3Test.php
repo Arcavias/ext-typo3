@@ -94,6 +94,15 @@ class MW_Cache_Typo3Test extends MW_Unittest_Testcase
 	}
 
 
+	public function testFlushWithSiteId()
+	{
+		$object = new MW_Cache_Typo3( array( 'siteid' => 1 ), $this->_mock );
+
+		$this->_mock->expects( $this->once() )->method( 'flushByTag' )->with( $this->equalTo( '1-siteid' ) );
+		$object->flush();
+	}
+
+
 	public function testGet()
 	{
 		$this->_mock->expects( $this->once() )->method( 'get' )
@@ -170,7 +179,7 @@ class MW_Cache_Typo3Test extends MW_Unittest_Testcase
 		$this->_mock->expects( $this->once() )->method( 'set' )
 			->with(
 				$this->equalTo( '1-key' ), $this->equalTo( 'value' ),
-				$this->equalTo( array( '1-tag' ) ), $this->equalTo( null )
+				$this->equalTo( array( '1-siteid', '1-tag' ) ), $this->equalTo( null )
 			);
 
 		$object->set( 'key', 'value', array( 'tag' ), null );
@@ -197,7 +206,7 @@ class MW_Cache_Typo3Test extends MW_Unittest_Testcase
 		$this->_mock->expects( $this->once() )->method( 'set' )
 			->with(
 				$this->equalTo( '1-key' ), $this->equalTo( 'value' ),
-				$this->equalTo( array( '1-tag' ) ), $this->equalTo( null )
+				$this->equalTo( array( '1-siteid', '1-tag' ) ), $this->equalTo( null )
 			);
 
 		$object->setList( array( 'key' => 'value' ), array( 'key' => array( 'tag' ) ), array() );
