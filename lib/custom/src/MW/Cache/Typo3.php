@@ -104,7 +104,7 @@ class MW_Cache_Typo3
 	 */
 	public function get( $name, $default = null )
 	{
-		if( ( $entry = $this->_object->get( $this->_prefix . $name ) ) !== null ) {
+		if( ( $entry = $this->_object->get( $this->_prefix . $name ) ) !== false ) {
 			return $entry;
 		}
 
@@ -128,7 +128,7 @@ class MW_Cache_Typo3
 
 		foreach( $keys as $key )
 		{
-			if( ( $entry = $this->_object->get( $this->_prefix . $key ) ) !== null ) {
+			if( ( $entry = $this->_object->get( $this->_prefix . $key ) ) !== false ) {
 				$result[$key] = $entry;
 			}
 		}
