@@ -8,9 +8,6 @@
  */
 
 
-use TYPO3\CMS\Core\Cache\Frontend;
-
-
 /**
  * TYPO3 caching implementation.
  *
@@ -31,9 +28,9 @@ class MW_Cache_Typo3
 	 * @param array $config List of configuration values
 	 * @param TYPO3\CMS\Core\Cache\Frontend\FrontendInterface $cache TYPO3 cache object
 	 */
-	public function __construct( array $config, FrontendInterface $cache )
+	public function __construct( array $config, TYPO3\CMS\Core\Cache\Frontend\FrontendInterface $cache )
 	{
-		$this->_prefix = ( isset( $config['siteid'] ) ? $config['siteid'] . ':' : '' );
+		$this->_prefix = ( isset( $config['siteid'] ) ? $config['siteid'] . '-' : '' );
 		$this->_object = $cache;
 	}
 

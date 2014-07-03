@@ -1,6 +1,6 @@
 <?php
 
-use TYPO3\CMS\Core\Cache\Frontend;
+namespace TYPO3\CMS\Core\Cache\Frontend;
 
 
 interface FrontendInterface
