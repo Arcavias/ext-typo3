@@ -261,29 +261,16 @@ class MShop_Customer_Manager_Typo3
 
 
 	/**
-	 * Returns the attributes that can be used for searching.
+	 * Returns the list attributes that can be used for searching.
 	 *
 	 * @param boolean $withsub Return also attributes of sub-managers if true
 	 * @return array List of attribute items implementing MW_Common_Criteria_Attribute_Interface
 	 */
 	public function getSearchAttributes( $withsub = true )
 	{
-		$list = array();
+		$path = 'classes/customer/manager/submanagers';
 
-		foreach( $this->_searchConfig as $key => $fields ) {
-			$list[ $key ] = new MW_Common_Criteria_Attribute_Default( $fields );
-		}
-
-		if( $withsub === true )
-		{
-			$config = $this->_getContext()->getConfig();
-
-			foreach( $config->get( 'classes/customer/manager/submanagers', array( 'address', 'list' ) ) as $domain ) {
-				$list = array_merge( $list, $this->getSubManager( $domain )->getSearchAttributes() );
-			}
-		}
-
-		return $list;
+		return $this->_getSearchAttributes( $this->_searchConfig, $path, array( 'address', 'list' ), $withsub );
 	}
 
 
@@ -444,11 +431,7 @@ class MShop_Customer_Manager_Typo3
 	 */
 	public function getSubManager( $manager, $name = null )
 	{
-		if( $name === null ) {
-			$name = 'Typo3';
-		}
-
-		return $this->_getSubManager( 'customer', $manager, $name );
+		return $this->_getSubManager( 'customer', $manager, ( $name === null ? 'Typo3' : $name ) );
 	}
 
 

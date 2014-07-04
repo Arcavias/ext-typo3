@@ -202,6 +202,20 @@ class MShop_Customer_Manager_Address_Typo3
 
 
 	/**
+	 * Returns the list attributes that can be used for searching.
+	 *
+	 * @param boolean $withsub Return also attributes of sub-managers if true
+	 * @return array List of attribute items implementing MW_Common_Criteria_Attribute_Interface
+	 */
+	public function getSearchAttributes( $withsub = true )
+	{
+		$path = 'classes/customer/manager/address/submanagers';
+
+		return $this->_getSearchAttributes( $this->_searchConfig, $path, array(), $withsub );
+	}
+
+
+	/**
 	 * Returns a new manager for customer extensions
 	 *
 	 * @param string $manager Name of the sub manager type in lower case
