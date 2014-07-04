@@ -268,23 +268,6 @@ class MShop_Customer_Manager_Typo3
 	 */
 	public function getSearchAttributes( $withsub = true )
 	{
-		/** classes/customer/manager/submanagers
-		 * List of manager names that can be instantiated by the customer manager
-		 *
-		 * Managers provide a generic interface to the underlying storage.
-		 * Each manager has or can have sub-managers caring about particular
-		 * aspects. Each of these sub-managers can be instantiated by its
-		 * parent manager using the getSubManager() method.
-		 *
-		 * The search keys from sub-managers can be normally used in the
-		 * manager as well. It allows you to search for items of the manager
-		 * using the search keys of the sub-managers to further limit the
-		 * retrieved list of items.
-		 *
-		 * @param array List of sub-manager names
-		 * @since 2014.03
-		 * @category Developer
-		 */
 		$path = 'classes/customer/manager/submanagers';
 
 		return $this->_getSearchAttributes( $this->_searchConfig, $path, array( 'address', 'list' ), $withsub );
