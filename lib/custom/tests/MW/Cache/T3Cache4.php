@@ -1,11 +1,11 @@
 <?php
 
-interface t3lib_cache_frontend_Frontend
+interface T3lib_Cache_Frontend_Frontend
 {
 }
 
 
-class T3Cache implements t3lib_cache_frontend_Frontend
+class T3Cache implements T3lib_Cache_Frontend_Frontend
 {
 	public function flush()
 	{
