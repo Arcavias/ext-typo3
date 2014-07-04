@@ -26,9 +26,10 @@ class MW_Cache_Typo3
 	 * Initializes the object instance.
 	 *
 	 * @param array $config List of configuration values
-	 * @param TYPO3\CMS\Core\Cache\Frontend\FrontendInterface $cache TYPO3 cache object
+	 * @param t3lib_cache_frontend_StringFrontend $cache TYPO3 cache object
+	 * @todo Use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface for TYPO3 6.3
 	 */
-	public function __construct( array $config, TYPO3\CMS\Core\Cache\Frontend\FrontendInterface $cache )
+	public function __construct( array $config, T3lib_Cache_Frontend_Frontend $cache )
 	{
 		$this->_prefix = ( isset( $config['siteid'] ) ? $config['siteid'] . '-' : '' );
 		$this->_object = $cache;
