@@ -6,7 +6,7 @@
  */
 
 
-require_once( __DIR__ . DIRECTORY_SEPARATOR . 'T3Cache4.php' );
+require_once( __DIR__ . DIRECTORY_SEPARATOR . 'T3Cache.php' );
 
 
 class MW_Cache_Typo3Test extends MW_Unittest_Testcase
