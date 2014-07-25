@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `fe_users` (
 	`country` varchar(60) DEFAULT '',
 	`www` varchar(80) DEFAULT NULL,
 	`company` varchar(80) DEFAULT NULL,
+	`vatid` varchar(32) DEFAULT NULL,
 	`image` tinytext,
 	`TSconfig` text,
 	`fe_cruser_id` int(10) unsigned NOT NULL DEFAULT '0',
