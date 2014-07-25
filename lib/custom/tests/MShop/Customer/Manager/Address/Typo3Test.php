@@ -76,6 +76,7 @@ class MShop_Customer_Manager_Address_Typo3Test extends MW_Unittest_Testcase
 
 		$this->assertEquals( 'mr', $actual->getSalutation() );
 		$this->assertEquals( 'Metaways', $actual->getCompany() );
+		$this->assertEquals( 'DE999999999', $actual->getVatID() );
 		$this->assertEquals( 'Dr', $actual->getTitle() );
 		$this->assertEquals( 'Our', $actual->getFirstname() );
 		$this->assertEquals( 'Unittest', $actual->getLastname() );
@@ -124,6 +125,7 @@ class MShop_Customer_Manager_Address_Typo3Test extends MW_Unittest_Testcase
 		$this->assertEquals( $item->getSiteId(), $itemSaved->getSiteId() );
 		$this->assertEquals( $item->getSalutation(), $itemSaved->getSalutation() );
 		$this->assertEquals( $item->getCompany(), $itemSaved->getCompany() );
+		$this->assertEquals( $item->getVatID(), $itemSaved->getVatID() );
 		$this->assertEquals( $item->getTitle(), $itemSaved->getTitle() );
 		$this->assertEquals( $item->getFirstname(), $itemSaved->getFirstname() );
 		$this->assertEquals( $item->getLastname(), $itemSaved->getLastname() );
@@ -150,6 +152,7 @@ class MShop_Customer_Manager_Address_Typo3Test extends MW_Unittest_Testcase
 		$this->assertEquals( $itemExp->getSiteId(), $itemUpd->getSiteId() );
 		$this->assertEquals( $itemExp->getSalutation(), $itemUpd->getSalutation() );
 		$this->assertEquals( $itemExp->getCompany(), $itemUpd->getCompany() );
+		$this->assertEquals( $itemExp->getVatID(), $itemUpd->getVatID() );
 		$this->assertEquals( $itemExp->getTitle(), $itemUpd->getTitle() );
 		$this->assertEquals( $itemExp->getFirstname(), $itemUpd->getFirstname() );
 		$this->assertEquals( $itemExp->getLastname(), $itemUpd->getLastname() );
@@ -192,6 +195,7 @@ class MShop_Customer_Manager_Address_Typo3Test extends MW_Unittest_Testcase
 		$expr[] = $search->compare( '!=', 'customer.address.siteid', null );
 		$expr[] = $search->compare( '==', 'customer.address.salutation', 'mr' );
 		$expr[] = $search->compare( '==', 'customer.address.company', 'Metaways GmbH' );
+		$expr[] = $search->compare( '==', 'customer.address.vatid', 'DE999999999' );
 		$expr[] = $search->compare( '==', 'customer.address.title', 'Dr.' );
 		$expr[] = $search->compare( '==', 'customer.address.firstname', 'Good' );
 		$expr[] = $search->compare( '==', 'customer.address.lastname', 'Unittest' );

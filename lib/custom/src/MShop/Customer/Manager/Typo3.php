@@ -53,6 +53,13 @@ class MShop_Customer_Manager_Typo3
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
+		'customer.vatid'=> array(
+			'label' => 'Customer VAT ID',
+			'code' => 'customer.vatid',
+			'internalcode' => 't3feu."vatid"',
+			'type' => 'string',
+			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
+		),
 		'customer.title' => array(
 			'label' => 'Customer title',
 			'code' => 'customer.title',
@@ -337,29 +344,30 @@ class MShop_Customer_Manager_Typo3
 			$stmt->bind( 2, $item->getCode() );
 			$stmt->bind( 3, $this->_plugins['customer.salutation']->translate( $billingAddress->getSalutation() ), MW_DB_Statement_Abstract::PARAM_INT );
 			$stmt->bind( 4, $billingAddress->getCompany() );
-			$stmt->bind( 5, $billingAddress->getTitle() );
-			$stmt->bind( 6, $billingAddress->getFirstname() );
-			$stmt->bind( 7, $billingAddress->getLastname() );
-			$stmt->bind( 8, $billingAddress->getAddress1() . $addressParts );
-			$stmt->bind( 9, $billingAddress->getPostal() );
-			$stmt->bind( 10, $billingAddress->getCity() );
-			$stmt->bind( 11, $billingAddress->getState() );
-			$stmt->bind( 12, $billingAddress->getLanguageId() );
-			$stmt->bind( 13, $billingAddress->getTelephone() );
-			$stmt->bind( 14, $billingAddress->getEmail() );
-			$stmt->bind( 15, $billingAddress->getTelefax() );
-			$stmt->bind( 16, $billingAddress->getWebsite() );
-			$stmt->bind( 17, $this->_plugins['customer.birthday']->translate( $item->getBirthday() ), MW_DB_Statement_Abstract::PARAM_INT );
-			$stmt->bind( 18, $this->_plugins['customer.status']->translate( $item->getStatus() ), MW_DB_Statement_Abstract::PARAM_INT );
-			$stmt->bind( 19, $item->getPassword() );
-			$stmt->bind( 20, time(), MW_DB_Statement_Abstract::PARAM_INT ); // Modification time
-			$stmt->bind( 21, $billingAddress->getCountryId() );
+			$stmt->bind( 5, $billingAddress->getVatID() );
+			$stmt->bind( 6, $billingAddress->getTitle() );
+			$stmt->bind( 7, $billingAddress->getFirstname() );
+			$stmt->bind( 8, $billingAddress->getLastname() );
+			$stmt->bind( 9, $billingAddress->getAddress1() . $addressParts );
+			$stmt->bind( 10, $billingAddress->getPostal() );
+			$stmt->bind( 11, $billingAddress->getCity() );
+			$stmt->bind( 12, $billingAddress->getState() );
+			$stmt->bind( 13, $billingAddress->getLanguageId() );
+			$stmt->bind( 14, $billingAddress->getTelephone() );
+			$stmt->bind( 15, $billingAddress->getEmail() );
+			$stmt->bind( 16, $billingAddress->getTelefax() );
+			$stmt->bind( 17, $billingAddress->getWebsite() );
+			$stmt->bind( 18, $this->_plugins['customer.birthday']->translate( $item->getBirthday() ), MW_DB_Statement_Abstract::PARAM_INT );
+			$stmt->bind( 19, $this->_plugins['customer.status']->translate( $item->getStatus() ), MW_DB_Statement_Abstract::PARAM_INT );
+			$stmt->bind( 20, $item->getPassword() );
+			$stmt->bind( 21, time(), MW_DB_Statement_Abstract::PARAM_INT ); // Modification time
+			$stmt->bind( 22, $billingAddress->getCountryId() );
 
 			if( $id !== null ) {
-				$stmt->bind( 22, $id, MW_DB_Statement_Abstract::PARAM_INT );
+				$stmt->bind( 23, $id, MW_DB_Statement_Abstract::PARAM_INT );
 			} else {
-				$stmt->bind( 22, time() ); // Creation time
-				$stmt->bind( 23, $this->_pid ); // TYPO3 PID value
+				$stmt->bind( 23, time() ); // Creation time
+				$stmt->bind( 24, $this->_pid ); // TYPO3 PID value
 			}
 
 			$result = $stmt->execute()->finish();

@@ -51,6 +51,13 @@ class MShop_Customer_Manager_Address_Typo3
 			'type' => 'string',
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
+		'customer.address.vatid'=> array(
+			'label' => 'Customer address VAT ID',
+			'code' => 'customer.address.vatid',
+			'internalcode' => 't3feuad."vatid"',
+			'type' => 'string',
+			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
+		),
 		'customer.address.salutation' => array(
 			'label' => 'Customer address salutation',
 			'code' => 'customer.address.salutation',

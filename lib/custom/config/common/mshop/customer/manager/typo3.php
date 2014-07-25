@@ -12,14 +12,14 @@ return array(
 			WHERE :cond
 		',
 		'insert' => '
-			INSERT INTO "fe_users" ("name", "username", "gender", "company", "title", "first_name", "last_name",
+			INSERT INTO "fe_users" ("name", "username", "gender", "company", "vatid", "title", "first_name", "last_name",
 				"address", "zip", "city", "zone", "language", "telephone", "email",
 				"fax", "www", "date_of_birth", "disable", "password", "tstamp", "static_info_country", "crdate", "pid")
-			SELECT ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,( SELECT "cn_iso_3" FROM "static_countries" WHERE "cn_iso_2"=? LIMIT 1 ),?,? FROM DUAL
+			SELECT ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,( SELECT "cn_iso_3" FROM "static_countries" WHERE "cn_iso_2"=? LIMIT 1 ),?,? FROM DUAL
 		',
 		'update' => '
 			UPDATE "fe_users"
-			SET "name"=?, "username"=?, "gender"=?, "company"=?, "title"=?, "first_name"=?, "last_name"=?,
+			SET "name"=?, "username"=?, "gender"=?, "company"=?, "vatid"=?, "title"=?, "first_name"=?, "last_name"=?,
 				"address"=?, "zip"=?, "city"=?, "zone"=?, "language"=?, "telephone"=?, "email"=?,
 				"fax"=?, "www"=?, "date_of_birth"=?, "disable"=?, "password"=?, "tstamp"=?,
 				"static_info_country"=( SELECT "cn_iso_3" FROM "static_countries" WHERE "cn_iso_2"=? LIMIT 1 )
@@ -27,7 +27,7 @@ return array(
 		',
 		'search' => '
 			SELECT DISTINCT t3feu."uid" AS "id", t3feu."name" AS "label", t3feu."username" AS "code", t3feu."gender",
-				t3feu."company", t3feu."title", t3feu."first_name" AS "firstname", t3feu."last_name" AS "lastname",
+				t3feu."company", t3feu."vatid", t3feu."title", t3feu."first_name" AS "firstname", t3feu."last_name" AS "lastname",
 				t3feu."address" AS "address1", t3feu."zip" AS "postal", t3feu."city", t3feu."zone" AS "state",
 				t3feu."language" AS "langid", tsc."cn_iso_2" AS "countryid", t3feu."telephone", t3feu."email",
 				t3feu."fax" AS "telefax", t3feu."www" AS "website", t3feu."date_of_birth", t3feu."disable", t3feu."password",
