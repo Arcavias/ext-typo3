@@ -12,8 +12,8 @@
 class MW_Setup_Task_CustomerAddVatidTypo3 extends MW_Setup_Task_Abstract
 {
 	private $_mysql = array(
-		'fe_users' => 'ALTER TABLE "fe_users" ADD "vatid" VARCHAR(32) AFTER "date_of_birth"',
-		'fe_users_address' => 'ALTER TABLE "fe_users_address" ADD "vatid" VARCHAR(32) AFTER "editor"',
+		'fe_users' => 'ALTER TABLE "fe_users" ADD "vatid" VARCHAR(32) AFTER "company"',
+		'fe_users_address' => 'ALTER TABLE "fe_users_address" ADD "vatid" VARCHAR(32) AFTER "company"',
 	);
 
 

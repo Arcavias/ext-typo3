@@ -22,6 +22,8 @@ CREATE TABLE "fe_users_address" (
 	"refid" INTEGER NOT NULL,
 	-- company name
 	"company" VARCHAR(100) NOT NULL,
+	-- vatid
+	"vatid" VARCHAR(32) NOT NULL,
 	-- customer/supplier categorization
 	"salutation" VARCHAR(8) NOT NULL,
 	-- title of the customer/supplier
