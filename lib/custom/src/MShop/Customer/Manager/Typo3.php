@@ -54,7 +54,7 @@ class MShop_Customer_Manager_Typo3
 			'internaltype' => MW_DB_Statement_Abstract::PARAM_STR,
 		),
 		'customer.vatid'=> array(
-			'label' => 'Customer vatid',
+			'label' => 'Customer VAT ID',
 			'code' => 'customer.vatid',
 			'internalcode' => 't3feu."vatid"',
 			'type' => 'string',
