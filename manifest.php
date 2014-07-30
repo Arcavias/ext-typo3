@@ -2,7 +2,6 @@
 
 /**
  * @copyright Copyright (c) Metaways Infosystems GmbH, 2011
- * @version $Id: manifest.php 16087 2012-07-17 11:11:41Z nsendetzky $
  */
 
 return array(
