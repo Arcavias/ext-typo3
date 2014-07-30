@@ -5,7 +5,7 @@ php:
   - "5.4"
   - "5.3"
 before_script:
-  - git clone --depth=50 --branch=master git://github.com/Arcavias/arcavias-core.git ../arcavias-core
+  - git clone --depth=50 --branch=2014.07 git://github.com/Arcavias/arcavias-core.git ../arcavias-core
   - cd ../arcavias-core
   - mv ../ext-typo3 ext/typo3
   - composer install || sleep 60 && composer install
