@@ -288,7 +288,7 @@ class MShop_Customer_Manager_Typo3
 	 */
 	public function createItem()
 	{
-		return $this->_createItem( new MShop_Common_Item_Address_Default( 'customer' ) );
+		return $this->_createItem();
 	}
 
 
