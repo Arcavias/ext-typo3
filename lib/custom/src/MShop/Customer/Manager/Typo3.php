@@ -288,7 +288,7 @@ class MShop_Customer_Manager_Typo3
 	 */
 	public function createItem()
 	{
-		return $this->_createItem( new MShop_Common_Item_Address_Default( 'customer' ) );
+		return $this->_createItem();
 	}
 
 
@@ -444,46 +444,21 @@ class MShop_Customer_Manager_Typo3
 
 
 	/**
-	 * Creates the items with address item, list items and referenced items.
-	 *
-	 * @param array $map Associative list of IDs as keys and the associative array of values
-	 * @param array $domains List of domain names whose referenced items should be attached
-	 * @param string $prefix Domain prefix
-	 * @return array List of items implementing MShop_Common_Item_Interface
-	 */
-	protected function _buildItems( array $map, array $domains, $prefix )
-	{
-		$items = $listItemMap = $refItemMap = $refIdMap = array();
-
-		foreach ( $map as $id => $values )
-		{
-			$listItems = array();
-			if ( isset( $listItemMap[$id] ) ) {
-				$listItems = $listItemMap[$id];
-			}
-
-			$refItems = array();
-			if ( isset( $refItemMap[$id] ) ) {
-				$refItems = $refItemMap[$id];
-			}
-
-			// Hand over empty address item, which will be filled in the customer item constructor
-			$items[ $id ] = $this->_createItem( new MShop_Common_Item_Address_Default( $prefix ), $values, $listItems, $refItems );
-		}
-
-		return $items;
-	}
-
-
-	/**
 	 * Creates a new customer item.
 	 *
 	 * @param array $values List of attributes for customer item
+	 * @param array $listItems List items associated to the customer item
+	 * @param array $refItems Items referenced by the customer item via the list items
+	 * @param MShop_Common_Item_Address_Interface $address billingaddress of customer item
 	 * @return MShop_Customer_Item_Interface New customer item
 	 */
-	protected function _createItem( MShop_Common_Item_Address_Interface $address, array $values = array(),
-		array $listItems = array(), array $refItems = array() )
+	protected function _createItem( array $values = array(), array $listItems = array(), array $refItems = array() )
 	{
+		if( !isset( $this->_addressManager ) ) {
+			$this->_addressManager = $this->getSubManager( 'address' );
+		}
+
+		$address = $this->_addressManager->createItem();
 		$values['siteid'] = $this->_getContext()->getLocale()->getSiteId();
 
 		if( array_key_exists( 'date_of_birth', $values ) ) {
